@@ -1,9 +1,8 @@
 #!/usr/bin/python3
-
 import sys
 
 def factorize(number):
-    for i in range(2, int(number**0.5) + 1):
+    for i in range(2, number + 1):
         if number % i == 0:
             return i, number // i
     return None, None
@@ -17,8 +16,6 @@ def main(filename):
                     factor1, factor2 = factorize(number)
                     if factor1 is not None and factor2 is not None:
                         print(f"{number}={factor1}*{factor2}")
-                    else:
-                        print(f"{number}={number}*1")  # Prime numbers
     except FileNotFoundError:
         print(f"File '{filename}' not found.")
     except Exception as e:
